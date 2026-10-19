@@ -783,7 +783,7 @@ class TestPyvadoFileManager(unittest.TestCase):
 
     pv.project.open()
 
-    files = ["./tests/unit_tests/files/foo_folder/folder_file1.vhd", "./tests/unit_tests/files/foo_folder/folder_file0.vhd"]
+    files = ["./tests/unit_tests/files/foo_folder/folder_file0.vhd", "./tests/unit_tests/files/foo_folder/folder_file1.vhd"]
 
     pv.files.add_directory("./tests/unit_tests/files/foo_folder")
 

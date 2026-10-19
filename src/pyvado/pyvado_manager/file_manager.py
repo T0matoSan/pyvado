@@ -46,7 +46,7 @@ class FileManager(PyvadoManager):
     ".vhdl", ".vhf", ".vhdp", ".sv", ".svp", 
     ".v", ".veo", ".svo", ".vf", ".verilog", 
     ".vr", ".vg", ".vb", ".tf", ".vlog", 
-    ".vp", ".vm", ".sveo", ".veo", ".svo"
+    ".vp", ".vm", ".sveo", ".veo", ".svo",
     ".vh", ".h", ".svh", ".vhp", ".svhp",
     ".edn", ".edf", ".edif", ".ngc", ".bnx",
     ".bmm", ".mif", ".mem", ".bd", ".wcfg", 
@@ -237,7 +237,7 @@ class FileManager(PyvadoManager):
     if not directory_path.is_dir():
       raise ValueError(f"{directory_path} is not a directory")
     
-    files = [f for f in directory_path.rglob("*") if f.is_file() and f.suffix in self.SUPPORTED_FILE_EXTENSIONS]
+    files = sorted(f for f in directory_path.rglob("*") if f.is_file() and f.suffix in self.SUPPORTED_FILE_EXTENSIONS)
 
     self.add_file(file_path=files, used_in_synth=used_in_synth, used_in_sim=used_in_sim, force=force, import_file=import_file)  
 
@@ -320,7 +320,7 @@ class FileManager(PyvadoManager):
       proj_source = f"{self._pyvado_session.project_name}.srcs/"
       files = self.get_files()
       for f in files:
-        if proj_source in str(f):
+        if proj_source in str(f) and Path(f).name == Path(file_name).name:
           cmd.append(f"file delete -force {f}")
           break
 
@@ -348,6 +348,9 @@ class FileManager(PyvadoManager):
 
     self._pyvado_session.process.send("puts [get_files]")
     files = self._pyvado_session.process.read()
+
+    if files is None:
+      return []
 
     if "No files matched" in files:
       return []

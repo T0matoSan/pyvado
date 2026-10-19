@@ -72,7 +72,7 @@ class PyvadoProcess:
       
     self.__process.stdin.write("puts [version -short]\n")
     self.__process.stdin.flush()
-    version = self.__process.stdout.readli
+    version = self.__process.stdout.readline()
       
     # Liste de suspects habituels
     search_paths = [
@@ -123,6 +123,7 @@ class PyvadoProcess:
       raise RuntimeError("Vivado has been killed")
 
     start_time = time.time()
+    error = None
 
     self.__process.stdin.write(cmd + '\n')
     self.__process.stdin.write(self.__SENTINEL_CMD + '\n')
