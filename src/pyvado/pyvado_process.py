@@ -72,7 +72,7 @@ class PyvadoProcess:
       
     self.__process.stdin.write("puts [version -short]\n")
     self.__process.stdin.flush()
-    version = self.__process.stdout.readline()
+    version = self.__process.stdout.readline().strip()
       
     # Liste de suspects habituels
     search_paths = [
