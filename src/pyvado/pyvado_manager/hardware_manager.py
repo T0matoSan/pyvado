@@ -157,7 +157,7 @@ class HardwareManager(PyvadoManager):
         self._pyvado_session.process.send("puts [get_property DIRECTORY [current_run -implementation]]")
         toplevel_path = self._pyvado_session.process.read().strip()
         
-        bitstream_files = list(Path(f"{toplevel_path}/").glob("*.bit"))
+        bitstream_files = sorted(Path(f"{toplevel_path}/").glob("*.bit"))
 
         if bitstream_files:
           bitstream_path = bitstream_files[0]

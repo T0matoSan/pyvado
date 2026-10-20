@@ -156,7 +156,10 @@ class ProjectManager(PyvadoManager):
       self._pyvado_session.process.send(f"set_property board_part {hw_given} [current_project]")
       
       while True:
-        if "Project part" in (s:=self._pyvado_session.process.read()):
+        s = self._pyvado_session.process.read()
+        if s is None:
+          raise PyvadoError(f"cannot find the part of board {hw_given}")
+        if "Project part" in s:
           part = s[s.find('(')+1:s.find(')')]
           break
 
