@@ -1,7 +1,7 @@
 """
 File name: file_manager
 Author: aureliesa
-Version: 1.2.0
+Version: 1.2.1
 License: GPL-3.0-or-later
 Dependencies: pyvado_process, pyvado_session, pyvado_manager, pyvado_error, pathlib, shlex
 Descriptions: Pyvado synthesis flow manager

@@ -114,13 +114,31 @@ For more comprehensive tutorials, see example.
 
 ## Roadmap
 
-- comprehensive report manager
-- create vivado project
 - multiple vivado execution
 
 ## Contributing
 
-Contribution are welcome.
+Contribution are welcome. 
+
+### Contribution guidlines
+
+Contributer must :
+- explain contribution
+- add unit and integration tests
+- update version number of files with the following format : x.y.z
+  -- x : major update
+  -- y : minor update
+  -- z : bug fix
+- If you develop a new manager, please provide an examples about how to use your manager
+
+### Contributors
+
+TomatoSan (author), EvaRed12
+
+## Version
+Current version : 0.1.2
+
+Version comment : pyvado pocess bug fix. Lists mangement (list of file, list of board) enhanced.
 
 ## License
 

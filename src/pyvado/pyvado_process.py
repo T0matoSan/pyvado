@@ -1,7 +1,7 @@
 """
 File name: pyvado_process
 Author: aureliesa
-Version: 1.1.0
+Version: 1.1.1
 License: GPL-3.0-or-later
 Dependencies: subprocess, time, pyvado_error
 Descriptions: Vivado subprocess
