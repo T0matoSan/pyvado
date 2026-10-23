@@ -133,7 +133,7 @@ Contributer must :
 
 ### Contributors
 
-TomatoSan (author), EvaRed12
+TomatoSan (author), EvaReid12
 
 ## Version
 Current version : 0.1.2
